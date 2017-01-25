@@ -2,15 +2,22 @@
 
 void Main()
 {
-	  
-      ITarget adapterElectronics = new  ElectronicAdapter();
+	 
+	  //The Adapter pattern is used to convert the programming interface of one class into that of another. We use adapters whenever we want unrelated classes to work together in a single program. The concept of an adapter is thus pretty simple: We write a class that has the desired interface and then make it communicate with the class that has a different interface. 
+
+//* Convert the interface of a class into another interface clients expect.
+
+//* Adapter lets classes work together, that could not otherwise because of incompatible interfaces.
+	  Console.WriteLine("Eletronic Stuff:");
+      IProducts adapterElectronics = new  ElectronicAdapter();
       foreach (string product in adapterElectronics.GetProducts())
       {
         Console.WriteLine(product);
       }
 	  
-	  
-      ITarget adapterBooks = new  BookAdapter();
+	   Console.WriteLine();
+	    Console.WriteLine("Books:");
+      IProducts adapterBooks = new  BookAdapter();
       foreach (string product in adapterBooks.GetProducts())
       {
         Console.WriteLine(product);
@@ -20,7 +27,7 @@ void Main()
 
 
 
-interface ITarget
+interface IProducts
 {
   List<string> GetProducts();
 }
@@ -40,7 +47,7 @@ public class BookVendorAdaptee
 }
 
 
-class BookAdapter:ITarget
+class BookAdapter:IProducts
 {
    public List<string> GetProducts()
    {
@@ -63,7 +70,7 @@ public class ElectronicVendorAdaptee
 }
 
 
-class ElectronicAdapter:ITarget
+class ElectronicAdapter:IProducts
 {
    public List<string> GetProducts()
    {
