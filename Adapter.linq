@@ -8,6 +8,8 @@ void Main()
 //* Convert the interface of a class into another interface clients expect.
 
 //* Adapter lets classes work together, that could not otherwise because of incompatible interfaces.
+
+//intent of the Adapter pattern is to make one or more classes' interfaces look the same as that of a particular class. 
 	  Console.WriteLine("Eletronic Stuff:");
       IProducts adapterElectronics = new  ElectronicAdapter();
       foreach (string product in adapterElectronics.GetProducts())
